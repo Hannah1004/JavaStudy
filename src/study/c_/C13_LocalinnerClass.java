@@ -55,15 +55,3 @@ public class C13_LocalinnerClass {
 abstract class Fruitt{
 	abstract double check();
 }
-
-
-
-
-
-
-
-
-
-
-
-

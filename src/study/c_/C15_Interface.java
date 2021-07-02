@@ -54,8 +54,3 @@ class Ball implements CanKick{
 	//	System.out.println("공을 클릭했습니다.");
 	//}
 }
-
-
-
-
-

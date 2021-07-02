@@ -48,17 +48,3 @@ class MintChocoLatte {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
