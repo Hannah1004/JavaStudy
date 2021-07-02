@@ -1,7 +1,10 @@
-package quiz.d_;
+package study.d_;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class D10_Calendar {
 
@@ -69,5 +72,67 @@ public class D10_Calendar {
 		System.out.println("MINUTE : " + now2.get(Calendar.MINUTE));
 		System.out.println("SECOND : " + now2.get(Calendar.SECOND));
 		
+		System.out.println("DAY_OF_YEAR (올해가 시작되고 지난 날짜) : " + now2.get(Calendar.DAY_OF_YEAR));
+		System.out.println("DAY_OF_MONTH (이번달이 시작되고 지난 날짜) : " + now2.get(Calendar.DAY_OF_MONTH));	
+		System.out.println("DAY_OF_WEEK (이번주가 시작되고 지난 날짜, 일요일이 시작) : " + now2.get(Calendar.DAY_OF_WEEK));
+		System.out.println("DAY_OF_WEEK_IN_MONTH (이번 달의 몇 번째 해당 요일인가) : " + now2.get(Calendar.DAY_OF_WEEK_IN_MONTH));
+		
+		// 다른 나라 시작 인스턴스 생성하기
+//		for(String avail_id : TimeZone.getAvailableIDs()){
+//			System.out.println(avail_id);
+//		}
+		
+		
+		System.out.println("\nUS/Eastern 날짜, 시간 >> ");
+		Calendar us_east = Calendar.getInstance(TimeZone.getTimeZone("US/Eastern"));
+		System.out.printf("%d년 %d월 %d일 %02d:%02d:%02d\n",
+				us_east.get(Calendar.YEAR),
+				us_east.get(Calendar.MONTH) + 1,
+				us_east.get(Calendar.DATE),
+				us_east.get(Calendar.HOUR_OF_DAY),
+				us_east.get(Calendar.MINUTE),
+				us_east.get(Calendar.SECOND));
+		
+		/* 
+		 	# SimpleDateFormat : 시간 인스턴스를 원하는 서식으로 편리하게 출력하기
+		 	
+		 	# 사용할 수 있는 서식들 (※ 이거 말고도 많이 있음, 궁금하면 문서 확인)
+		 	
+		 		y : 년
+		 		M : 월
+		 		d : 일
+		 		D : 일 (1 ~ 365)
+		 		
+		 		H : 24시
+		 		h : 12시
+		 		m : 분
+		 		s : 초
+		 		
+		 		E : 요일 (금요일 -> EEEEEE) => 한글은 두글자씩 써줘야함
+		 		a : AM/PM
+		 */
+		
+		SimpleDateFormat myDateFormat = new SimpleDateFormat("yyyy/MM/dd\tHH:mm:ss aa EEEEEE", Locale.US);
+		
+		// Calendar 인스턴스로 Date타입 인스턴스를 생성할 수 있다.
+		String text = myDateFormat.format(us_east.getTime());
+		System.out.println(text);
+		
+		// Calendar의 set() 메서드를 사용해 원하는 필드를 원하는 값으로 변경할 수 있다.
+		Calendar calendar = Calendar.getInstance();
+		
+		System.out.println("변경 전 : " + getCurrentDate(calendar));
+		
+		calendar.set(Calendar.DATE, 30);
+		calendar.set(Calendar.MONTH, 1);
+		
+		System.out.println("변경 후 : " + getCurrentDate(calendar));
+		
+	}
+	
+	public static String getCurrentDate(Calendar calendar) {
+		SimpleDateFormat current = new SimpleDateFormat(
+				"yyyy년 MM월 dd일 / EEEEEE");
+		return current.format(calendar.getTime());
 	}
 }
