@@ -97,18 +97,3 @@ public class A05_Print {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

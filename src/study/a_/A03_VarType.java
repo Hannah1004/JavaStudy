@@ -67,12 +67,3 @@ public class A03_VarType {
 		System.out.println("num1 : "+num1);
 	}
 }
-
-
-
-
-
-
-
-
-

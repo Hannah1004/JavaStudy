@@ -39,14 +39,4 @@ public class A06_Operator01 {
 		System.out.println(Math.pow(10, 3));
 		System.out.println(Math.pow(10, 4));
 	}
-
 }
-
-
-
-
-
-
-
-
-

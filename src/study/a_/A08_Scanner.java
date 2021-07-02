@@ -34,13 +34,3 @@ public class A08_Scanner {
 		System.out.println("´ç½Å : "+str2);
 	}
 }
-
-
-
-
-
-
-
-
-
-

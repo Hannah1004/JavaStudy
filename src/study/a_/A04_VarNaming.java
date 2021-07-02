@@ -55,15 +55,3 @@ public class A04_VarNaming {
 		
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-

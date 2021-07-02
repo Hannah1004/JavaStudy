@@ -44,11 +44,4 @@ public class A10_TypeCasting {
 		System.out.println(80);
 		System.out.println((char)80);
 	}
-
 }
-
-
-
-
-
-
