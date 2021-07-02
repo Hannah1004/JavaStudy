@@ -56,15 +56,5 @@ public class D11_Time {
 		System.out.println(어린이날.isAfter(크리스마스));  // 어린이날이 크리스마스보다 뒤에있니?  false
 		System.out.println(어린이날.isBefore(크리스마스)); // 어린이날이 크리스마스보다 앞에 있니? true
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }
