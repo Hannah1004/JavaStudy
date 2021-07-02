@@ -45,7 +45,3 @@ public class B05_For {
 	}
 
 }
-
-
-
-

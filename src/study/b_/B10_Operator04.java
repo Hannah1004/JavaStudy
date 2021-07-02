@@ -1,6 +1,5 @@
 package study.b_;
 
-
 public class B10_Operator04 {
 
 	public static void main(String[] args) {

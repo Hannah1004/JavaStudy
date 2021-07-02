@@ -34,9 +34,3 @@ public class B08_While {
 	}
 
 }
-
-
-
-
-
-

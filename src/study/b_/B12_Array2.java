@@ -45,12 +45,3 @@ public class B12_Array2 {
 	}
 
 }
-
-
-
-
-
-
-
-
-
