@@ -6,12 +6,13 @@ import java.util.Comparator;
 
 public class D05_Comparator {
 	/*
-	 * 이 인터페이스를 구현한 클래스는 서로 크기가 비교 가능한 클래스다 된다. 
-	 * 이 인터페이스를 구현한 클래스는 Collections의 정렬기능을
-	 * 이용할 수 있다
-	 * 
-	 * Comparator - 이 인터페이스를 구현한 클래스는 비교의 기준으로 사용된다
-	 */
+	 	# Comparator 
+	 	
+	 		- 이 인터페이스를 구현한 클래스는 비교의 기준으로 사용된다
+	  		- 이 인터페이스를 구현한 클래스는 서로 크기가 비교 가능한 클래스다 된다. 
+	  		- 이 인터페이스를 구현한 클래스는 Collections의 정렬기능을 이용할 수 있다
+	  
+	*/
 
 	public static void main(String[] args) {
 		Snack s1 = new Snack("허니버터칩", "롯데", "허니버터맛", 600, 2000);
@@ -127,11 +128,12 @@ class 과자분류기_회사내림차 implements Comparator<Snack>{
 class 과자진열대 implements Comparator<Snack> {
 
 	/*
-	 compare 규칙 
-	 - 두 값의 자리를 바꾸고 싶으면 1을 리턴 
-	 - 두 값일 자리를 바꾸지 않고 싶으면 -1을 리턴 
-	 - 두 값이 서로 같은값이라면 0을 리턴
-	 */
+		 compare 규칙 
+		 
+		 	- 두 값의 자리를 바꾸고 싶으면 1을 리턴 
+			 - 두 값일 자리를 바꾸지 않고 싶으면 -1을 리턴 
+			 - 두 값이 서로 같은값이라면 0을 리턴
+	*/
 
 	@Override
 	public int compare(Snack o1, Snack o2) {

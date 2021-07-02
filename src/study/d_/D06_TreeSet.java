@@ -2,10 +2,10 @@ package study.d_;
 
 import java.util.*;
 
-
 public class D06_TreeSet {
 	/*
 		TreeSet
+		
 			- 순서가 있는 Set
 			- 처음 Set에 데이터를 추가할 때 값을 정렬해서 넣는다
 			- 중복은 허용하지 않는다(Set의 특징, 순서가 없는 것은 Hash의 특징)
@@ -73,18 +73,3 @@ public class D06_TreeSet {
 		
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

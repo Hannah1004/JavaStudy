@@ -2,20 +2,22 @@ package study.d_;
 
 public class D04_WrapperClass {
 	/*
-	 * Wrapper Class - 기본 타입들을 참조형 타입으로 감싸놓은 클래스들 - 각 기본 타입들에 대한 유용한 기능들이 모여있다
-	 * 
-	 * 기본형 타입들 - byte, short, char, int, long, float, double, boolean
-	 * 
-	 * 기본형에 대한 참조형 타입 - Byte, Short, Character, Integer, Long, Float, Double,
-	 * Boolean
+	  	# Wrapper Class 
+	  		
+	  		- 기본 타입들을 참조형 타입으로 감싸놓은 클래스들 
+	  		- 각 기본 타입들에 대한 유용한 기능들이 모여있다
+	  
+	  	# 기본형 타입들 - byte, short, char, int, long, float, double, boolean
+	  
+	    # 기본형에 대한 참조형 타입 - Byte, Short, Character, Integer, Long, Float, Double, Boolean
 	 */
 
 	public static void main(String[] args) {
 		/*
-		 * parsing
-		 * 
-		 * - 문자열을 원하는 타입으로 변환시키는 것 - 각 타입의 Wrapper 클래스에 static 메소드로서 존재한다
-		 */
+		  # parsing
+		 
+		 	- 문자열을 원하는 타입으로 변환시키는 것 - 각 타입의 Wrapper 클래스에 static 메소드로서 존재한다
+		*/
 
 		int num = Integer.parseInt("123");
 		System.out.println(num);
@@ -24,9 +26,12 @@ public class D04_WrapperClass {
 		System.out.println(d);
 
 		/*
-		 * toString - 각 타입의 값을 문자열로 변환하는 기능 - 오버라이드 가능한 toString과는 다르다 - 원하는 진법의 문자열로
-		 * 변환할 수 있는 기능도 있다
-		 */
+		   	# toString 
+		   		
+		   		- 각 타입의 값을 문자열로 변환하는 기능 
+		   		- 오버라이드 가능한 toString과는 다르다 
+		   		- 원하는 진법의 문자열로 변환할 수 있는 기능도 있다
+		*/
 
 		String result = Integer.toString(num);
 		System.out.println(result);
@@ -45,18 +50,3 @@ public class D04_WrapperClass {
 		Character.isLowerCase('a');
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

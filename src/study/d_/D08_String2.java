@@ -1,7 +1,6 @@
 package study.d_;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class D08_String2 {
 	
@@ -30,8 +29,3 @@ public class D08_String2 {
 		}
 	}
 }
-
-
-
-
-

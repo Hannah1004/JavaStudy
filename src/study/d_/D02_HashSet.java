@@ -91,15 +91,3 @@ public class D02_HashSet {
 		System.out.println(avg);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
