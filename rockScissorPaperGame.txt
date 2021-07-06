@@ -1,0 +1,11 @@
+
+===============================
+player : rock computer : rock
+draw
+player : computer
+1      :    1
+===============================
+player : rock computer : rock
+draw
+player : computer
+1      :    1
