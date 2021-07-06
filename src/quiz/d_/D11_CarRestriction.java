@@ -9,7 +9,6 @@ public class D11_CarRestriction {
 		System.out.println("===== 끝번호 차량 출입 제한 =====");
 		car.finalCheck();
 		System.out.println("===========================");
-		
-		
+
 	}
 }
