@@ -27,13 +27,14 @@ public class D11_CarClass {
 		System.out.println("차 타입 : " + carType + ", 차 번호 : " + ranCarNum);
 		
 		String holiday = "" + nowDay;
+		
 		if(nowDay.isAfter(startDay)) {
 			if(holidayCheck(holiday)) {
-				System.out.println("오늘은 공휴일입니다.");
-				System.out.println("모든 차량 출입 가능!");
+				System.out.println("오늘은 [공휴일]입니다.");
+				System.out.println("모든 차량 출입 [가능]!");
 			}else if(carType.equals("장애인") || carType.equals("유아동승") ||carType.equals("경차")) {
 				System.out.println("출입제한에서 제외된 차량입니다.");
-				System.out.println("언제든지 출입 가능합니다!");
+				System.out.println("언제든지 출입 [가능]합니다!");
 			}else {
 				numCheck(nowWeek, lastCarNum);
 			}
@@ -42,6 +43,7 @@ public class D11_CarClass {
 		}
 	}
 	
+	// 요일별 제한 번호 체크
 	public static void numCheck(int dayWeek, int lastCarNum) {
 		if((dayWeek == 1 && (lastCarNum == 1 || lastCarNum == 6))  //월요일
 		|| (dayWeek == 2 && (lastCarNum == 2 || lastCarNum == 7))  //화요일
@@ -49,9 +51,9 @@ public class D11_CarClass {
 		|| (dayWeek == 4 && (lastCarNum == 4 || lastCarNum == 9))  //목요일
 		|| (dayWeek == 5 && (lastCarNum == 5 || lastCarNum == 0))  //금요일
 		) {
-			System.out.println("출입제한되는 차량입니다.");
+			System.out.println("출입[제한]되는 차량입니다.");
 		}else {
-			System.out.println("출입가능한 차량입니다.");
+			System.out.println("주말에는 모든 차량이 출입[가능]합니다!");
 		}
 	}
 	
@@ -66,5 +68,4 @@ public class D11_CarClass {
 		}
 		return holiCheck;
 	}
-	
 }
