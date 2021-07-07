@@ -42,14 +42,17 @@ public class E01_SaveGame {
 			
 			if(player.equals(com)) {
 				draw++;
+				E02_LoadGame.score[0]++;
 				System.out.println("[비겼습니다.]");
 			}else if((player.equals("scissor") && com.equals("paper")) 
 				  || (player.equals("paper") && com.equals("rock"))
 				  || (player.equals("rock") && com.equals("scissor"))) {
 				playerWin++;
+				E02_LoadGame.score[1]++;
 				System.out.println("[플레이어가 이겼습니다.]");
 			}else{
 				comWin++;
+				E02_LoadGame.score[2]++;
 				System.out.println("[컴퓨터가 이겼습니다.]");
 			}
 			out.write((draw + "/" + playerWin + "/" + comWin).getBytes());

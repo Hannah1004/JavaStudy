@@ -26,7 +26,7 @@ public class E02_LoadGame {
 		
 		loadGame();
 		
-		rock_scissors_paper_game();
+		E01_SaveGame.rock_scissors_paper_game();
 		
 		saveGame();
 	}
@@ -73,48 +73,4 @@ public class E02_LoadGame {
 		
 	}
 
-	// 어떤거 고를지 선택
-	public static void rock_scissors_paper_game() {
-		
-		String[] types = {"scissor", "rock", "paper"};
-		
-		String com = types[random.nextInt(3)];
-		String player;
-		
-		System.out.print("scissor rock paper 중에 선택하세요 >> ");
-		player = sc.nextLine();
-		
-		System.out.println("player : " + player);
-		System.out.println("computer : " + com);
-		
-		rock_scissors_paper_check(player, com);
-	}
-
-	// 가위바위보 승패 check 후 전적 파일에 적어서 저장
-	public static void rock_scissors_paper_check(String player, String com) {
-		
-		try {
-			FileOutputStream out = new FileOutputStream("rockScissorPaperGame.txt", true);
-			
-			if(player.equals(com)) {
-				score[0]++;
-				System.out.println("[비겼습니다.]");
-			}else if((player.equals("scissor") && com.equals("paper")) 
-				  || (player.equals("paper") && com.equals("rock"))
-				  || (player.equals("rock") && com.equals("scissor"))) {
-				score[1]++;
-				System.out.println("[플레이어가 이겼습니다.]");
-			}else{
-				score[2]++;
-				System.out.println("[컴퓨터가 이겼습니다.]");
-			}
-			
-			out.close();
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-	}
 }
