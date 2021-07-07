@@ -36,31 +36,24 @@ public class E01_SaveGame {
 	public static void rock_scissors_paper_check(String player, String com) {
 		
 		try {
-			FileOutputStream out = new FileOutputStream("rockScissorPaperGame.txt", true);
-			out.write("\n===============================\n".getBytes());
-			out.write(("player : " + player + " computer : " + com).getBytes());
+			FileOutputStream out = new FileOutputStream("files/game.sav", true);
 			
-			int playerWin = 0, comWin = 0;
+			int playerWin = 0, comWin = 0, draw = 0;
 			
 			if(player.equals(com)) {
-				out.write("\ndraw".getBytes());
-				playerWin++;
-				comWin++;
+				draw++;
 				System.out.println("[비겼습니다.]");
 			}else if((player.equals("scissor") && com.equals("paper")) 
 				  || (player.equals("paper") && com.equals("rock"))
 				  || (player.equals("rock") && com.equals("scissor"))) {
-				out.write("\nplayer win".getBytes());
 				playerWin++;
 				System.out.println("[플레이어가 이겼습니다.]");
 			}else{
-				out.write("\ncomputer win".getBytes());
 				comWin++;
 				System.out.println("[컴퓨터가 이겼습니다.]");
 			}
-			out.write("\nplayer : computer".getBytes()) ;
-			out.write(("\n" + playerWin + "      :    " + comWin).getBytes());
-			System.out.println(playerWin + "      :    " + comWin);
+			out.write((draw + "/" + playerWin + "/" + comWin).getBytes());
+			
 			out.close();
 			
 		} catch (FileNotFoundException e) {
