@@ -1,10 +1,8 @@
 package study.E_;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -65,9 +63,5 @@ public class E05_BufferedStream {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
 	}
-	
-	
 }
