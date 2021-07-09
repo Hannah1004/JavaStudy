@@ -15,11 +15,11 @@ public class E05_Encrypt {
    /*
         # 암호 열쇠값이 1 | 2인 경우
               +1               +2
-           C   -->      D   |   C   -->      E
-         A   -->      B   |   A   -->      C
-         R   -->      S   |   R   -->      T
+			C   -->      D   |   C   -->      E
+			A   -->      B   |   A   -->      C
+			R   -->      S   |   R   -->      T
          
-         CAR --> DBS      |   CAR --> ECT , ZOO --> BQQ
+	 		CAR --> DBS      |   CAR --> ECT , ZOO --> BQQ
          
     */
 

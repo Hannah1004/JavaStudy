@@ -17,7 +17,7 @@ public class E02_FileInputStream {
 			 	InputStream.read(byte[]) : 파일의 데이터를 byte[]의 크기만큼 읽어들인다.
 			 	InputStrea.read(byte[], start, end) : ... 버퍼의 일부분에만 읽기가 가능하다.
 			 	
-			 	세 메서드 모두 더 이상 읽을 것이 없다면 -1을 반환한다.
+			 	세개의 메서드 모두 더 이상 읽을 것이 없다면 -1을 반환한다.
 			 */
 			
 //			int ch = -1;
