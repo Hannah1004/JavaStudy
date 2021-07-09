@@ -1,4 +1,4 @@
-package study.E_;
+package study.e_;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;

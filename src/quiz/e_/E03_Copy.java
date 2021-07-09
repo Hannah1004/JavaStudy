@@ -1,4 +1,4 @@
-package quiz.E_;
+package quiz.e_;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,4 +1,4 @@
-package quiz.E_;
+package quiz.e_;
 
 public class E05_Decrypt {
 

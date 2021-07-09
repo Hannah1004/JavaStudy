@@ -1,4 +1,4 @@
-package quiz.E_;
+package quiz.e_;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
