@@ -1,12 +1,12 @@
 package quiz.e_;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class E05_HackTool {
@@ -20,49 +20,8 @@ public class E05_HackTool {
 	
 	public static void main(String[] args) {
 		
-//		for(int i = 1; i <= 25; ++i) {
-//			System.out.println("=================================key : " + i + " 복호화 ==================================");
-//			decrypt("files/frankenstein_encrypted.txt", i); // 키 값 : 9
-//		}
-		
 		bruteforce("files/frankenstein_encrypted.txt");
 		
-	}
-	
-	// 복호화 (내가 한거) key값이 맞지 않음
-	public static void decrypt(String path, int key) {
-		
-		File file = new File(path);
-		try(
-				FileReader fin = new FileReader(file);
-				BufferedReader in = new BufferedReader(fin);
-		){
-			
-			String line;
-			int count = 0;
-			while((line = in.readLine()) != null) {
-				
-				for(char ch : line.toCharArray()) {
-					if(Character.isUpperCase(ch)) {
-						ch = (char)((ch - key) % 26 + 'A');
-					}else if(Character.isLowerCase(ch)){
-						ch = (char)((ch - key) % 26 + 'a');
-					}
-					System.out.print(ch);
-				}
-				System.out.println();
-
-				if(count == 10) {
-					break;
-				}
-				
-				count++;
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	// 복호화 (강사님이 풀어준거)
@@ -106,7 +65,10 @@ public class E05_HackTool {
 					}else if(Character.isLowerCase(ch)) {
 						ch = (char) (ch - key < 'a' ? ch - key + 26 : ch - key);
 					}
-					System.out.print(ch);
+					String text = String.valueOf(ch);
+					System.out.print(text);
+					String[] word = text.split(" ");
+					//System.out.println(Arrays.toString(word));
 				}
 				System.out.println();
 			}
