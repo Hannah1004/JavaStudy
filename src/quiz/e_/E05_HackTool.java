@@ -7,7 +7,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.Set;
 
 public class E05_HackTool {
 
@@ -24,7 +28,7 @@ public class E05_HackTool {
 		
 	}
 	
-	// 복호화 (강사님이 풀어준거)
+	// 복호화
 	public static void bruteforce(String path) {
 		ArrayList<String> lines = new ArrayList<>();
 		
@@ -33,7 +37,6 @@ public class E05_HackTool {
 				FileReader fin = new FileReader(file);
 				BufferedReader in = new BufferedReader(fin);
 		){
-			
 			String line;
 			
 			// 10줄을 읽거나 또는 파일이 끝날때까지 반복
@@ -46,7 +49,6 @@ public class E05_HackTool {
 					lines.add(line);
 				}
 			}
-		
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -54,36 +56,83 @@ public class E05_HackTool {
 		}
 		
 		Scanner sc = new Scanner(System.in);
-		
+		String[] words = null;  // split해서 넣은 값
+		String text = "";
+		int count = 0;
+		HashMap<Integer, Integer> counts = new HashMap<>(); // key : key, value : count
 		for(int key = 1; key < 26; ++key) {
-			System.out.printf("---- Key : %d -------------------------\n", key);
-			for(String line : lines) {
-				
-				for(char ch : line.toCharArray()) {
-					if(Character.isUpperCase(ch)) {
-						ch = (char) (ch - key < 'A' ? ch - key + 26 : ch - key);
-					}else if(Character.isLowerCase(ch)) {
-						ch = (char) (ch - key < 'a' ? ch - key + 26 : ch - key);
-					}
-					String text = String.valueOf(ch);
-					System.out.print(text);
-					String[] word = text.split(" ");
-					//System.out.println(Arrays.toString(word));
+			
+		System.out.printf("---- Key : %d -------------------------\n", key);
+		for(String line : lines) {
+			
+			for(char ch : line.toCharArray()) {
+				if(Character.isUpperCase(ch)) {
+					ch = (char) (ch - key < 'A' ? ch - key + 26 : ch - key);
+				}else if(Character.isLowerCase(ch)) {
+					ch = (char) (ch - key < 'a' ? ch - key + 26 : ch - key);
 				}
-				System.out.println();
+				text += ch;
 			}
+			
+			words = text.split(" ");
+			
+			System.out.println(Arrays.toString(words));
+			
+			for(int i = 0; i < words.length; ++i) {
+				for(int j = 0; j < dictionaryCheck().size(); ++j) {
+					if(words[i].equals(dictionaryCheck().get(j))) {
+						count++;
+					}
+				}
+			}
+			text = "";
+			}
+			counts.put(key, count);
 			System.out.println();
-			
-			System.out.println("Press 'Enter' to continue...");
-			String cmd = sc.nextLine();
-			
-			// d 또는 D를 입력했을때 
-			if(cmd.toLowerCase().equals("d")) {
-				System.out.println("전체 파일 복호화를 진행합니다..");
-				break;
+			count = 0;
+			System.out.println(counts);
+		}
+		int maxCount = Collections.max(counts.values());
+		Set<Entry<Integer, Integer>> entrySet = counts.entrySet();
+
+		for(Entry<Integer, Integer> entry : entrySet) {
+			if(entry.getValue() == maxCount) {
+				System.out.println("key값은 " + entry.getKey());
 			}
 		}
-		System.out.println("프로그램 끝!");
-	}
+		
+			System.out.println();
+//			System.out.println("Press 'Enter' to continue...");
+//			String cmd = sc.nextLine();
+//			
+//			// d 또는 D를 입력했을때 
+//			if(cmd.toLowerCase().equals("d")) {
+//				System.out.println("전체 파일 복호화를 진행합니다..");
+//				break;
+//			}
+		}
+//		System.out.println("프로그램 끝!");
+//	}
 	
+	
+	public static ArrayList<String> dictionaryCheck() {
+		ArrayList<String> word = new ArrayList<>();
+		
+		File f = new File("dictionary/dictionary2.txt");
+		
+		try(
+				FileReader fin = new FileReader(f);
+				BufferedReader in = new BufferedReader(fin);
+		){
+			String line;
+			
+			while((line = in.readLine()) != null) {
+				word.add(line);
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return word;
+	}
 }
