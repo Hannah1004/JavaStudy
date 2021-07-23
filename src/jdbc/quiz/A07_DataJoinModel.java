@@ -3,10 +3,11 @@ package jdbc.quiz;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import jdbc.A06_HikariCP;
+import jdbc.DBConnector;
 import jdbc.model.Departments;
 import jdbc.model.Employees;
 
@@ -17,38 +18,55 @@ public class A07_DataJoinModel {
 	
 	public static void main(String[] args) {
 		
-		String sql = "SELECT employee_id, first_name, email, hire_date,"
-						+ " salary, department_id, department_name FROM employees "
-						+ "INNER JOIN departments USING(department_id) ORDER BY employee_id";
+		String sql = "SELECT e.*, d.*, e.manager_id AS mid1, d.manager_id AS mid2"
+					+ " FROM employees e, departments d"
+					+ " WHERE e.department_id = d.department_id"
+					+ " ORDER BY employee_id";
 		
 		ArrayList<Employees> empList = new ArrayList<>();
 		ArrayList<Departments> deList = new ArrayList<>();
 		
 		try(
-			Connection conn = A06_HikariCP.getConnection();
+			Connection conn = DBConnector.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 		){
+			
+			ResultSetMetaData meta = rs.getMetaData();
+			
+			for(int i = 1, len = meta.getColumnCount(); i <= len; ++i) {
+				System.out.println(meta.getColumnLabel(i));
+			}
 			
 			while (rs.next()) {
 				empList.add(new Employees(
 						rs.getInt("employee_id"),
 						rs.getString("first_name"),
-						rs.getInt("salary"),
+						rs.getString("last_name"),
+						rs.getString("email"),
+						rs.getString("phone_number"),
+						rs.getDate("hire_date"),
+						rs.getNString("job_id"),
+						rs.getDouble("salary"),
+						rs.getDouble("commission_pct"),
+						rs.getInt("mid1"),
 						rs.getInt("department_id"),
-						rs.getString("department_name")));
+						new Departments(
+								rs.getInt("department_id"),
+								rs.getString("department_name"),
+								rs.getInt("mid2"),
+								rs.getInt("location_id")
+						)
+				));
 				
 			}
-			System.out.println(empList);
-			
+			System.out.println("Àß ²¨³¿");
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
+
+		System.out.println(empList);
 	}
-	
-	
-	
 	
 }
