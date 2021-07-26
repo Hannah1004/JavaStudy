@@ -12,7 +12,8 @@ public class RandomButton extends JButton{
 	Random ran;
 	
 	public RandomButton() {
-		super("None");
+		super("-");
+		ran = new Random();
 	}
 	
 	void roll() {

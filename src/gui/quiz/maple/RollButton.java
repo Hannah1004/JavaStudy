@@ -12,9 +12,27 @@ public class RollButton extends JButton{
 
 	public RollButton() {
 		ranBtns = new ArrayList<>();
-		ranBtns.add(new RandomButton());
-		ranBtns.add(new RandomButton());
-		ranBtns.add(new RandomButton());
+		
+		RandomButton stat1 = new RandomButton();
+		RandomButton stat2 = new RandomButton();
+		RandomButton stat3 = new RandomButton();
+		
+		ranBtns.add(stat1);
+		ranBtns.add(stat2);
+		ranBtns.add(stat3);
+		
+		setSize(620, 120);
+		setLocation(10,300);
+		setText("Roll!");
+		
+		stat1.setLocation(10, 160);
+		stat1.setSize(200, 120);
+		
+		stat2.setLocation(220, 160);
+		stat2.setSize(200, 120);
+		
+		stat3.setLocation(430, 160);
+		stat3.setSize(200, 120);
 		
 		addActionListener(new ActionListener() {
 			
