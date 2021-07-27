@@ -42,7 +42,7 @@ public class S07_GridLayout extends StudyFrame{
 		}
 		
 		// 화면을 구성하는 코드와 동작을 처리하는 코드는 분리하는 것이 좋다.
-		// gui.myhandler에 GenerateColorHandler에 분리해놓음\
+		// gui.myhandler에 GenerateColorHandler에 분리해놓음
 		south_button.addActionListener(new GenerateColorHandler(btns));
 		// 버튼을 프로그램적으로 클릭한다.
 		// doClick()을 쓰지 않으면 아무 색이 없는 상태이다.

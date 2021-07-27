@@ -27,6 +27,7 @@ public class S01_JavaSwing {
 		JFrame frame = new JFrame();
 		
 		// 버튼 생성
+		// 각 컴포넌트 인스턴스 값을 수정하는 방식으로 해당 컴포넌트를 자세히 설정할 수 있다
 		JButton btn1 = new JButton("This is button");
 		btn1.setLocation(100,100);
 		btn1.setSize(150, 80);

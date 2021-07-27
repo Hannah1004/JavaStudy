@@ -1,13 +1,19 @@
 package gui;
 
 import java.awt.Font;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import gui.myhandler.MyButtonHandler2;
+
 public class S04_ActionListener extends JFrame{
 
+	int count = 0;
+	
 	public S04_ActionListener() {
 		super();
 		
@@ -23,6 +29,18 @@ public class S04_ActionListener extends JFrame{
 		// 버튼 추가
 		add(btns.get(0), "Center");
 		add(btns.get(1), "East");
+		
+		// ()에는 actionListener를 가진 class or 메소드가 들어오기만 하면된다.
+		// 액션 리스너를 추가한 컴포넌트는 무언가 이벤트가 발생할 때마다 actionPerformed메서드를 호출한다.
+		btns.get(0).addActionListener(new MyButtonHandler2());
+		
+		btns.get(1).addMouseWheelListener(new MouseWheelListener() {
+			
+			@Override
+			public void mouseWheelMoved(MouseWheelEvent e) {
+				btns.get(1).setText("" + count++);
+			}
+		});
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocation(100,100);
