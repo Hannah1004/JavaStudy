@@ -1,4 +1,4 @@
-package gui.quiz.numberPuzzle;
+package gui.quiz.gridPuzzle;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

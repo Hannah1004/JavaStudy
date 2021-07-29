@@ -1,4 +1,4 @@
-package gui.quiz.numberPuzzle;
+package gui.quiz.gridPuzzle;
 
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
