@@ -23,7 +23,6 @@ public class GridPuzzle extends StudyFrame implements ActionListener{
 	
 	static ArrayList<JButton> btns = new ArrayList<>();
 	
-	
 	public GridPuzzle() {
 		super();
 		
@@ -33,10 +32,9 @@ public class GridPuzzle extends StudyFrame implements ActionListener{
 		// gameSetting
 		add(gameSetting(), "Center");
 		
-		for(int i = 0; i < 16; i++) {
-			btns.get(0).addActionListener(this);
+		for(int i = 0; i < 15; i++) {
+			btns.get(i).addActionListener(this);
 		}
-		
 		
 	}
 	
@@ -69,10 +67,12 @@ public class GridPuzzle extends StudyFrame implements ActionListener{
 		}
 		
 		Collections.shuffle(btns);
+		
 		for(JButton btn : btns) {
 			center_panel.add(btn);
 		}
-		center_panel.add(new JButton(""));
+		
+		center_panel.add(new JButton(" "));
 		
 		return center_panel;
 	}
@@ -84,6 +84,9 @@ public class GridPuzzle extends StudyFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		System.out.println(e.getActionCommand());
+		
+		btns.get(15).setText(e.getActionCommand());
 		
 	} 
 }
