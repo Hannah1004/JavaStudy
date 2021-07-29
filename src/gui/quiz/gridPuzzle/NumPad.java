@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
-public class NumPad extends JButton implements ActionListener{
+public class NumPad extends JButton{
 
 	List<JButton> numPads;
 	BufferedImage image;
@@ -35,6 +35,7 @@ public class NumPad extends JButton implements ActionListener{
 		this.right	= index % gameSize != gameSize - 1 ? index + 1 : -1; 
 		
 		// 마지막 칸은 빈칸으로 처리해줌
+		// textAction일 때
 //		if(index == gameSize * gameSize -1) {
 //			setText("");
 //		}else {
@@ -49,7 +50,10 @@ public class NumPad extends JButton implements ActionListener{
 		
 		// Font에 기울기, 굵기 둘다 처리해줌
 		setFont(new Font("돋움" , Font.ITALIC|Font.BOLD, 35));
-		addActionListener(this);
+		
+		// actionListener부분에 만든 클래스를 넣어준다.
+		addActionListener(new ImageNumPadAction(this));
+		//addActionListener(new TextNumPadAction());
 		
 	}
 
@@ -63,42 +67,4 @@ public class NumPad extends JButton implements ActionListener{
 		return image.getSubimage(x * 700 / gameSize, y * 700 / gameSize, width, height);
 	}
 	
-	private boolean isBlank(int index) {
-		
-		return numPads.get(index).getText().equals("");
-	}
-	
-	
-	
-	
-//	@Override
-//	public void actionPerformed(ActionEvent e) {
-//		
-//		if(top != -1 && isBlank(top)) {
-//			numPads.get(top).setText(this.getText());
-//			this.setText("");
-//		}else if(bottom != -1 && isBlank(bottom)) {
-//			numPads.get(bottom).setText(this.getText());
-//			this.setText("");
-//		}else if(left != -1 && isBlank(left)) {
-//			numPads.get(left).setText(this.getText());
-//			this.setText("");
-//		}else if(right != -1 && isBlank(right)) {
-//			numPads.get(right).setText(this.getText());
-//			this.setText("");
-//		}
-//		
-//		
-//		if(numPads.get(numPads.size() -1).getText().equals("")) {
-//			boolean win = true;
-//			for(int i = 1, size = numPads.size(); i < size; ++i) {
-//				if(!numPads.get(i - 1).getText().equals("" + i)) {
-//					
-//					win = false;
-//					break;
-//				}
-//			}
-//			System.out.println("win : " + win);
-//		}
-//	}
 }

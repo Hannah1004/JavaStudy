@@ -29,7 +29,7 @@ public class GridPuzzleTeacher extends JFrame{
 	public GridPuzzleTeacher(int gameSize) throws IOException {
 		super(String.format("숫자 퍼즐 게임 : %dx%d", gameSize, gameSize));
 		
-		image_path = "./image/animals/penguin.jpeg";
+		image_path = "./image/animals/puppy.jpeg";
 		
 		JPanel num_panel = new JPanel(new GridLayout(gameSize, gameSize));
 		JPanel menu_panel = new JPanel(new BorderLayout());
