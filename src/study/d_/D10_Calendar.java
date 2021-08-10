@@ -64,7 +64,7 @@ public class D10_Calendar {
 		System.out.println("now2로 꺼낸 year : " + now2.get(Calendar.YEAR));
 		
 		// 필드 값중 month만 0부터 시작한다.
-		System.out.println("now2로 꺼낸 month : " + now2.get(Calendar.MONTH));
+		System.out.println("now2로 꺼낸 month : " + (now2.get(Calendar.MONTH) +1));
 		System.out.println("now2로 꺼낸 date : " + now2.get(Calendar.DATE));
 		
 		System.out.println("HOUR : " + now2.get(Calendar.HOUR));
